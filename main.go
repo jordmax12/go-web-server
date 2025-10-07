@@ -3,10 +3,16 @@ package main
 import (
 	"log"
 	"net/http"
+	"os"
 	"time"
 )
 
 func main() {
+	// Check if user wants to run the pointer guide
+	if len(os.Args) > 1 && os.Args[1] == "--guide" {
+		RunPointerGuide()
+		return
+	}
 	// Create a new HTTP multiplexer (router)
 	mux := http.NewServeMux()
 	
